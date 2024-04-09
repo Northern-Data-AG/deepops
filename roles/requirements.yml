@@ -11,10 +11,10 @@ collections:
   version: 3.8.1
 
 - name: ansible.utils
-  version: 4.0.0
+  version: 2.11.0
 
 - name: ansible.netcommon
-  version: 6.0.0
+  version: 5.2.0
 
 roles:
 
