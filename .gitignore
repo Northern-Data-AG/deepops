@@ -2,7 +2,7 @@
 .idea
 
 # logs
-logs/*
+*ansible.log
 
 # ansible
 *.retry
