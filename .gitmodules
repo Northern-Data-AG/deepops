@@ -1,6 +1,6 @@
-[submodule "kubespray"]
+[submodule "submodules/kubespray"]
 	path = submodules/kubespray
 	url = https://github.com/kubernetes-sigs/kubespray.git
-[submodule "packer-maas"]
+[submodule "submodules/packer-maas"]
 	path = submodules/packer-maas
 	url = https://github.com/DeepOps/packer-maas.git
