@@ -10,6 +10,11 @@
     - ../../submodules/kubespray/roles/kubespray-defaults/defaults/main/main.yml
     - ../../submodules/kubespray/roles/kubernetes/preinstall/defaults/main.yml
   tasks:
+    - name: remove /etc/apt/sources.list.d/docker.list if it exists
+      ansible.builtin.file:
+        path: /etc/apt/sources.list.d/docker.list
+        state: absent
+      ignore_errors: true
     - name: include kubespray task to set facts required for docker role
       include: ../../submodules/kubespray/roles/kubernetes/preinstall/tasks/0020-set_facts.yml
       when: docker_install | default('yes')
