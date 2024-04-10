@@ -1,0 +1,2 @@
+[submodule "submodules/kubespray"]
+	update = rebase
