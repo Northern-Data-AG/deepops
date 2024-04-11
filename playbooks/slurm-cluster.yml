@@ -127,20 +127,20 @@
 # Install Open OnDemand
 - include: slurm-cluster/open-ondemand.yml
   when: install_open_ondemand
-#
-## Set Permissions to adjust GPU Clocks speeds
-#- include: utilities/gpu-clocks.yml
-#  when: allow_user_set_gpu_clocks
-#
-## Install Enroot and Pyxis
-#- include: container/pyxis.yml
-#  when:
-#    - slurm_install_enroot
-#    - slurm_install_pyxis
-#  tags:
-#    - pyxis
-#
-## Ensure that nv_peer_mem is loaded
-#- include: nvidia-software/nvidia-peer-memory.yml
-#  tags:
-#    - nvidia-peer-memory
+
+# Set Permissions to adjust GPU Clocks speeds
+- include: utilities/gpu-clocks.yml
+  when: allow_user_set_gpu_clocks
+
+# Install Enroot and Pyxis
+- include: container/pyxis.yml
+  when:
+    - slurm_install_enroot
+    - slurm_install_pyxis
+  tags:
+    - pyxis
+
+# Ensure that nv_peer_mem is loaded
+- include: nvidia-software/nvidia-peer-memory.yml
+  tags:
+    - nvidia-peer-memory
