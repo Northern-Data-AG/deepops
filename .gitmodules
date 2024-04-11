@@ -1,0 +1,4 @@
+[submodule "submodules/kubespray"]
+	path = submodules/kubespray
+	url = https://github.com/Northern-Data-AG/kubespray.git
+	branch = taiga/slurm
