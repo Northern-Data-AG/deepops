@@ -43,7 +43,7 @@
 
 - name: don't build slurm if it's already installed, unless forced
   set_fact:
-    slurm_build: no
+    slurm_build: yes    # no
   when: slurmd_reported_version.stdout == slurm_version and not slurm_force_rebuild
 
 - name: upgrade?
