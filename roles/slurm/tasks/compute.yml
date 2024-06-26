@@ -33,6 +33,11 @@
     - name: reboot after updating grub config
       reboot:
         reboot_timeout: "{{ slurm_node_reboot_timeout }}"
+    - name: mount vast nfs share
+      ansible.builtin.shell: |
+        set -ex
+        mount -t nfs -o vers=3,noatime,nconnect=16,proto=tcp6 \[2a11:cc80:2000:1::101\]:/ /mnt
+      become: true
   when: update_grub.changed and ansible_os_family == "Debian"
 
 - name: update grub
