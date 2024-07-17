@@ -52,7 +52,7 @@ slurm_allow_ssh_user: ["root", "taiga-support"]
 # Enable a Slurm compute node to also function as a login node.
 # This is needed for the "single node Slurm cluster" configuration.
 # See docs/slurm-cluster/slurm-single-node.md
-slurm_login_on_compute: false
+slurm_login_on_compute: true  # changed from false
 
 ################################################################################
 # Kubespray - necessary configuration for Docker setup                         #
@@ -66,7 +66,7 @@ dns_late: false
 slurm_configure_etc_hosts: true
 slurm_cluster_install_cuda: false
 slurm_cluster_install_nvidia_driver: false
-slurm_cluster_install_singularity: false
+slurm_cluster_install_singularity: true   # changed from false
 
 ################################################################################
 # NFS                                                                          #
