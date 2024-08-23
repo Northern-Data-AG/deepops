@@ -13,6 +13,10 @@
     dest: /usr/local/src/pyxis
     extra_opts:
       - --strip-components=1
+  register: pyxis_copy
+  retries: 5
+  delay: 1
+  until: pyxis_copy.failed == false
   tags: pyxis
 
 - name: clean pyxis source directory

@@ -98,6 +98,10 @@
     dest: "{{ pmix_build_dir }}"
     extra_opts:
       - --strip-components=1
+  register: pmix_download
+  retries: 5
+  delay: 1
+  until: pmix_download.failed == false
   environment: "{{ proxy_env if proxy_env is defined else {} }}"
   when: pmix_build
 

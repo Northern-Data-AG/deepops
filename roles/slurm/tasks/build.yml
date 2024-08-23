@@ -156,6 +156,10 @@
     dest: "{{ slurm_build_dir }}"
     extra_opts:
       - --strip-components=1
+  register: slurm_download
+  retries: 5
+  delay: 1
+  until: slurm_download.failed == false
   environment: "{{ proxy_env if proxy_env is defined else {} }}"
   when: slurm_build
 

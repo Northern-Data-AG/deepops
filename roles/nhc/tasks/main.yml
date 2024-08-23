@@ -47,6 +47,10 @@
     url: "{{ nhc_src_url }}"
     dest: "{{ nhc_build_dir }}/nhc-{{ nhc_version }}.tar.xz"
     mode: "0644"
+  register: url_status
+  retries: 5
+  delay: 1
+  until: url_status.failed == false
   environment: "{{ proxy_env if proxy_env is defined else {} }}"
   when: nhc_build
 

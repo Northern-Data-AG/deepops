@@ -37,6 +37,10 @@
     url: "{{ hpcsdk_download_url }}"
     dest: "{{ hpcsdk_dest_download_path }}"
     mode: "0444"
+  register: sdk_download
+  retries: 5
+  delay: 1
+  until: sdk_download.failed == false
 
 - name: extract archive
   when: not nvhpc_localrc.stat.exists
